@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Khan - RF Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #16a2a7;
+            --primary-dark: #136781;
+            --secondary: #10b981;
+            --dark: #223f42;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --accent: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        #r{
+               text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.07s;
+            border-top: 4px solid var(--primary-dark);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 4px;
+        }
+        #r:hover{
+              border-bottom: 4px solid var(--primary-dark);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            
+        }
+        
+        .nav-links .a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.5s;
+            margin-top: 6px;
+        }
+        
+        .nav-links .a:hover {
+            color: var(--light);        
+            /* border: 1px solid var(--primary); */
+            background-color: var(--primary-dark);
+            border-radius: 8px;
+            padding: 6px;
+             letter-spacing: 2px;
+             font-weight: 700;
+             margin-top: 1px;
+
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.01rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--dark);
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Resume Section */
+        .resume-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .resume-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .profile-img img{
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 4px solid var(--primary);
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .skills {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--light-gray);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+        
+        .main-content {
+            padding: 1rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 2.5rem;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .company {
+            font-weight: 1000;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        #IT-logo{
+            margin-bottom: 0.3rem;
+            width: 200px;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .date i {
+            margin-right: 0.5rem;
+        }
+        
+        .responsibilities {
+            list-style-type: none;
+        }
+        
+        .responsibilities li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .responsibilities li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .education-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tag {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        /* Print Styles */
+        @media print {
+            nav, .hero, .portfolio, .contact, footer {
+                display: none;
+            }
+            
+            .resume-section {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            body {
+                background: white;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Bilal Khan</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home" class="a">Home</a>
+                <a href="#resume" id="r">Resume</a>
+                <a href="#portfolio" class="a">Portfolio</a>
+                <a href="#contact" class="a">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Bilal Khan</h1>
+            <h2>RF Engineer | Ubiquiti Specialist</h2>
+            <p>Detail-oriented RF Engineer with 4 years of hands-on experience deploying, configuring, and optimizing Ubiquiti wireless networks. Proficient in UniFi and airMAX platforms with expertise in RF planning and network optimization.</p>
+            <div class="hero-buttons">
+                <a href="#resume" class="btn">View Resume</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resume Section -->
+    <section class="resume-section" id="resume">
+        <div class="section-title">
+            <h2>Professional Resume</h2>
+            <p>My 4+ years of experience in RF engineering and wireless network deployment</p>
+        </div>
+        
+        <div class="resume-container">
+            <aside class="sidebar">
+                <div class="profile-img"><img src="Image/PSX_20200607_143925_093815.jpg" alt="Image"></div>
+                
+                <div class="contact-info">
+                    <h3>Contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        Bilalrfengineer@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +92317-2118625, +92328-2674402
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        linkedin.com/in/bilal-khan-958ab6229
+                    </div>
+                </div>
+                
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <div class="skill-category">
+                        <h4>Ubiquiti Platforms</h4>
+                        <div>
+                            <span class="skill-tag">UniFi</span>
+                            <span class="skill-tag">airMAX</span>
+                            <span class="skill-tag">airFiber</span>
+                            <span class="skill-tag">EdgePoint</span>
+                            <span class="skill-tag">UISP (UNMS)</span>
+                            <span class="skill-tag">LTU</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Wireless Technologies</h4>
+                        <div>
+                            <span class="skill-tag">802.11 standards</span>
+                            <span class="skill-tag">60GHz/5GHz/2.4GHz</span>
+                            <span class="skill-tag">Licensed bands</span>
+                            <span class="skill-tag">PtP/PtMP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <div>
+                            <span class="skill-tag">Ubiquiti Link Planner</span>
+                            <span class="skill-tag">airView</span>
+                            <span class="skill-tag">airOS</span>
+                            <span class="skill-tag">WiFiman</span>
+                            <span class="skill-tag">Wireshark</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Networking</h4>
+                        <div>
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">VLANs</span>
+                            <span class="skill-tag">OSPF</span>
+                            <span class="skill-tag">QoS</span>
+                            <span class="skill-tag">VPN</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <div>
+                        <span class="skill-tag">Urdu (Native)</span>
+                        <span class="skill-tag">English (Fluent)</span>
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="main-content">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p>Detail-oriented RF Engineer with 4 years of hands-on experience deploying, configuring, and optimizing Ubiquiti wireless networks. Proficient in UniFi and airMAX platforms with a strong background in RF planning, link budget analysis, interference mitigation, and throughput optimization. Adept at site surveys, spectrum analysis, and outdoor/indoor wireless link design. Experienced in managing large-scale point-to-point (PtP) and point-to-multipoint (PtMP) deployments.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    <div class="experience-item">
+                        <div class="job-title">RF Engineer — Ubiquiti Networks Deployment Specialist</div>
+                        <div class="company"><img src="Image/net_logo.jpg" id="IT-logo" alt="Gerry's Information Technology">South Division — Karachi, Pakistan</div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> Jan 2021 – Current</div>
+                        <ul class="responsibilities">
+                            <li>Designed and deployed Ubiquiti-based wireless networks across rural and urban areas for ISP and enterprise clients</li>
+                            <li>Engineered PtP and PtMP links using airMax and airFiber radios, including long-range (20km+) backhaul links</li>
+                            <li>Conducted RF site surveys using airView and external tools to assess channel noise and logically on Google Earth</li>
+                            <li>Optimized antenna alignment, EIRP output, and channel width to enhance link stability and reduce latency</li>
+                            <li>Maintained and monitored networks via UISP, proactively identifying and resolving performance issues</li>
+                            <li>Configured Unifi APs, switches, and security gateways for seamless indoor/outdoor coverage in hotels, campuses, and offices</li>
+                            <li>Installed and aligned Ubiquiti antenna devices for customer premises and performed throughput validation tests</li>
+                            <li>Provided support for firmware updates, device provisioning, and emergency link restoration</li>
+                            <li>Documented installations including link distances, RSSI readings and device configurations</li>
+                            <li>Trained junior techs on Ubiquiti hardware, alignment techniques, and best practices</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <h3>Aptech Computer Education — North Nazimabad, Karachi, Pakistan</h3>
+                        <p>ACCP AI (Aptech Certified Computer Professional Artificial Intelligence) — Ongoing, Expected Completion: August 2027</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>AIOU University — Federal B Area, Naseerabad, Karachi, Pakistan</h3>
+                        <p>Bachelor of Science (BS) in Physics — Ongoing</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Govt. Boys Science College — Buffer zone, Karachi, Pakistan</h3>
+                        <p>Intermediate (Pre-Engineering)</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Projects & Interests</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">SDR (Software Defined Radio) Projects using GNU Radio</span>
+                        <span class="project-tag">Long-range Wi-Fi Mesh Experiments</span>
+                        <span class="project-tag">Antenna Prototyping & Tuning</span>
+                        <span class="project-tag">Community Wireless Networks</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>Some of my recent projects and work samples</p>
+        </div>
+        
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400?text=Ubiquiti+Deployment')"></div>
+                <div class="project-content">
+                    <h3>Urban Ubiquiti Network Deployment</h3>
+                    <p>Designed and implemented a city-wide Ubiquiti network for a major ISP, covering 50+ square kilometers with high-density PtMP connections.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Ubiquiti</span>
+                        <span class="project-tag">PtMP</span>
+                        <span class="project-tag">Network Design</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400?text=Long-Range+Link')"></div>
+                <div class="project-content">
+                    <h3>23km PtP Backhaul Link</h3>
+                    <p>Engineered a long-distance point-to-point link between two corporate campuses using airFiber technology, achieving 500Mbps throughput.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">airFiber</span>
+                        <span class="project-tag">PtP</span>
+                        <span class="project-tag">RF Planning</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img" style="background-image: url('https://via.placeholder.com/600x400?text=Campus+WiFi')"></div>
+                <div class="project-content">
+                    <h3>University Campus WiFi</h3>
+                    <p>Deployed a seamless UniFi WiFi network across a 20-building university campus with zero-handoff roaming and centralized management.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">UniFi</span>
+                        <span class="project-tag">WiFi</span>
+                        <span class="project-tag">High-Density</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>Feel free to contact me for RF engineering projects or consultations</p>
+        </div>
+        
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <h3>Bilal Khan</h3>
+        <p>RF Engineer | Wireless Network Specialist</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="copyright">© <span id="year"></span> All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, message });
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.section, .project-card, .section-title').forEach(element => {
+            element.style.opacity = 0;
+            observer.observe(element);
+        });
+        
+        // Print Resume Button
+        const printBtn = document.createElement('button');
+        printBtn.className = 'btn';
+        printBtn.innerHTML = '<i class="fas fa-print"></i> Print Resume';
+        printBtn.style.position = 'fixed';
+        printBtn.style.bottom = '20px';
+        printBtn.style.right = '20px';
+        printBtn.style.zIndex = '1000';
+        printBtn.addEventListener('click', () => {
+            window.print();
+        });
+        document.body.appendChild(printBtn);
+    </script>
+</body>
+</html>
